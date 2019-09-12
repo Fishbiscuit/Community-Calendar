@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic'>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="js/tabletop1.3.4.js"></script>
+    <script type="text/javascript" src='js/sheetsee.js'></script>
+    <script type="text/javascript" src='js/table.js'></script>
+    <script type="text/javascript" src='js/leaflet.markercluster.js'></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script defer="" src="https://sabe.io/js/javascript.73.js"></script>
+    <!-- Bonus NodeSchool stylesheet option! -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/nodeschool.css"> -->
+  </head>
+  <body>
+
+  <h1>SUTD Open Calendar</h1>
+  <br>
+  <div id='filter'>
+      <button class=''>all</button>
+      <button class='briefing'>briefing</button>
+      <button class='HASS'>HASS</button>
+      <button class='CDC'>CDC</button>
+      <button class='ASD'>ASD</button>
+      <button class='EPD'>EPD</button>
+      <button class='ESD'>ESD</button>
+      <button class='ISTD'>ISTD</button>
+      <button class='fifth-row'>Fifth Rows</button>
+
+  </div>
+
+      <div class="search-container">
+        <form class="form-search form-inline">
+            <input type="text" class="input-medium search-query" placeholder="Search">
+            <button type="submit" class="btn">Search</button>
+        </form>
+    </div>
+  <div id="calendar-goes-here"></div>
+  <small>Add events to this <a href="https://docs.google.com/spreadsheets/d/1naumfgP-UrnW0Ypt_IDZq8di0NvmbDZweSAXRzLD30c/edit?usp=sharing" target="_blank">spreadsheet</a>. Visit the GitHub <a href="http://www.github.com/jlord/sheetsee-calendar">repository</a>.</small>
+
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+      var URL = "1naumfgP-UrnW0Ypt_IDZq8di0NvmbDZweSAXRzLD30c"
+      Tabletop.init( { key: URL, callback: generateCalendar, simpleSheet: true } )
+    })
+  </script>
+
+  <script>
+    $("#filter button").each(function() {
+    $(this).on("click", function(){
+        var filtertag = $(this).attr('class');
+        $('.event').show();
+        $('.event:not(.' + filtertag + ')').hide();
+      });
+    });
+  </script>
+  
+  <script>
+  $('.form-search').on('submit',function(){return false;});
+  $('.form-search .btn').on('click', function(e){
+      var query = $.trim($(this).prevAll('.search-query').val()).toLowerCase();
+      $('div.event').each(function(){
+          var $this = $(this);
+          if($this.text().toLowerCase().indexOf(query) === -1)
+              $this.closest('div.event').fadeOut();
+          else $this.closest('div.event').fadeIn();
+      });
+  });
+  </script>
+  </body>
+</html>
