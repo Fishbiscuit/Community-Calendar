@@ -19,4 +19,5 @@ Events on 25th Sept 2019
 
 ## Contribute
 
-[Add events to this spreadsheet](https://docs.google.com/spreadsheets/d/1naumfgP-UrnW0Ypt_IDZq8di0NvmbDZweSAXRzLD30c/edit?usp=sharing)
+1. [Add events to this spreadsheet](https://docs.google.com/spreadsheets/d/1naumfgP-UrnW0Ypt_IDZq8di0NvmbDZweSAXRzLD30c/edit?usp=sharing)
+2. If you want to add tags, feel free to make a PR. It's currently hardcoded so that there isn't too many tags that would clutter the bar.
