@@ -1,4 +1,5 @@
 # Community Calendar
+This calendar is adapted from [ForknGo](https://jlord.us/forkngo/)
 
 Sometimes there are just too many things happening at one go. This calendar answers the question "what's the best day to have my event?".
 
