@@ -10,34 +10,32 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script defer="" src="https://sabe.io/js/javascript.73.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
+
     <!-- Bonus NodeSchool stylesheet option! -->
     <!-- <link rel="stylesheet" type="text/css" href="css/nodeschool.css"> -->
   </head>
+
   <body>
-
-  <h1>SUTD Open Calendar</h1>
-  <br>
-  <div id='filter'>
-      <button class=''>all</button>
-      <button class='briefing'>briefing</button>
-      <button class='HASS'>HASS</button>
-      <button class='CDC'>CDC</button>
-      <button class='ASD'>ASD</button>
-      <button class='EPD'>EPD</button>
-      <button class='ESD'>ESD</button>
-      <button class='ISTD'>ISTD</button>
-      <button class='fifth-row'>Fifth Rows</button>
-
+  <div class="column">
+      <h1 class="title">Community Calendar</h1>
   </div>
 
-      <div class="search-container">
-        <form class="form-search form-inline">
-            <input type="text" class="input-medium search-query" placeholder="Search">
-            <button type="submit" class="btn">Search</button>
-        </form>
-    </div>
+  <br>
+  <div id='filter'>
+      <button class='button' id=''>all</button>
+      <button class='button' id="briefing">Briefings</button>
+      <button class='button' id="HASS">HASS</button>
+      <button class='button' id="CDC">CDC</button>
+      <button class='button' id='ASD'>ASD</button>
+      <button class='button' id='EPD'>EPD</button>
+      <button class='button' id='ESD'>ESD</button>
+      <button class='button' id='ISTD'>ISTD</button>
+      <button class='button' id='fifth-row'>Fifth Rows</button>
+
+  </div>
   <div id="calendar-goes-here"></div>
-  <small>Add events to this <a href="https://docs.google.com/spreadsheets/d/1naumfgP-UrnW0Ypt_IDZq8di0NvmbDZweSAXRzLD30c/edit?usp=sharing" target="_blank">spreadsheet</a>. Visit the GitHub <a href="http://www.github.com/jlord/sheetsee-calendar">repository</a>.</small>
+  Visit the GitHub <a href="http://www.github.com/opensutd/community-calendar">repository</a>.</small>
 
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function() {
@@ -49,24 +47,12 @@
   <script>
     $("#filter button").each(function() {
     $(this).on("click", function(){
-        var filtertag = $(this).attr('class');
+        var filtertag = $(this).attr('id');
+        console.log(filtertag);
         $('.event').show();
         $('.event:not(.' + filtertag + ')').hide();
       });
     });
-  </script>
-  
-  <script>
-  $('.form-search').on('submit',function(){return false;});
-  $('.form-search .btn').on('click', function(e){
-      var query = $.trim($(this).prevAll('.search-query').val()).toLowerCase();
-      $('div.event').each(function(){
-          var $this = $(this);
-          if($this.text().toLowerCase().indexOf(query) === -1)
-              $this.closest('div.event').fadeOut();
-          else $this.closest('div.event').fadeIn();
-      });
-  });
   </script>
   </body>
 </html>
