@@ -102,7 +102,6 @@ function generateMonthTable(date) {
   var weekDayNumber = firstDay.getDay()
 
   $('#calendar-goes-here').append(monthTable)
-  monthTable.before('<br>')
   //monthTable.before('<h2 data-month="' + date.getFullYear() + '-' + eventMonthName + '">' + eventMonthName + ' ' + date.getFullYear() + '</h2>')
 
   // Add month calendar header
