@@ -14,7 +14,7 @@ Events on 25th Sept 2019
 3. Talk: Transformtion for Innovation in SUTD, 1500-1600
 4. UPOP Advanced Module Workshop: Storytelling - Are you able to captivate your audience?, 1400-1730
 5. Advances in Urban Engineering: Machine Learning, Infrastructure Interdependencies, Design Processes, 1400-1500
-6 Real-world AI for community eye care 1300-1400
+6. Real-world AI for community eye care 1300-1400
 7. Fire drill from 1800-2000
 
 ## Contribute
